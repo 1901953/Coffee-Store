@@ -482,18 +482,121 @@ section{
 /* 不一定是要display：grid的時候，先可以使用gap，一般display：flex 都能使用gap*/
 .contact .row{
     display:flex;
-    align-items: center;
     background-color:var(--black);
     flex-wrap: wrap;
     gap: 1rem;
 }
 
 .contact .row .map{
-    
+    flex:1 1 45rem;
+    width:100%;
+    object-fit: cover;
 }
 
 
+.contact .row form{
+    flex:1 1 45rem;
+    padding: 5rem 2rem;
+    text-align: center;
+}
 
+.contact .row form h3{
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    color: #fff;
+}
+/* inputBox 是div的class，這個div也是包含著 <input>的,所以inputBox這個class的作用就是裝飾 <input> */
+.contact .row form .inputBox{
+    display:flex;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background: var(--black);
+    border: var(--border);
+}
+
+/* 任何時候都好，都是只能用span 來去定義css， 假如<span>入邊包含住 class，最後到css定義的時候都找用span來定義
+ */
+.contact .row form .inputBox span{
+    color:#fff;
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+
+
+.contact .row form .inputBox input{
+    width:100%;
+    padding:2rem;
+    text-transform: none;
+    color:#fff;
+    background-color: var(--black);
+}
+
+
+.blogs .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    gap: 2rem;
+}
+
+.blogs .box-container .box{
+    padding:3rem 1rem;
+    border: var(--border);
+    text-align: center;
+}
+
+/*overflow: hidden;作用於：但内容超出你所指定的區域時，
+可以使用overflow：hidden隱藏超出該區域的内容 */
+.blogs .box-container .images{
+    height: 25rem;
+    overflow: hidden;
+    width:100%;
+}
+
+.blogs .box-container .images img{
+    height:100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/*transform: scale(1.2); 在這裏起到放大的圖片的作用，
+意思是當鼠標：hover 移動到box的時候，就會發生放大的作用 */
+.blogs .box-container .box:hover .images img{
+    transform: scale(1.2);
+}
+
+.blogs .box-container .box .content{
+    text-align: left;
+    padding: 2rem;
+}
+
+.blogs .box-container .box .content .title{
+    text-align: left;
+    font-size: 2.5rem;
+    line-height: 1.8;
+    color:#fff;
+}
+
+
+.blogs .box-container .box .content .title:hover{
+    color:var(--main-color);
+}
+
+/* display: block;在這裏起到了 隔行的作用 */
+.blogs .box-container .box .content span{
+    display: block;
+    color:var(--main-color);
+    font-size:2rem;
+    padding-top: 1rem;
+    text-align: left;
+}
+
+.blogs .box-container .box .content p{
+    color:#ccc;
+    font-size:1.5rem;
+    padding-top: 1rem;
+    text-align: left;
+}
 
 @media (max-width:1629px){
     html{
@@ -508,6 +611,59 @@ section{
         padding:2rem;
     }
 
+}
+
+
+.footer{
+    background: var(--black);
+    text-align: center;
+}
+
+.footer .share{
+    padding: 1.5rem 0;
+}
+
+.footer .share a{
+    height: 5rem;
+    width: 5rem;
+    font-size: 3rem;
+    line-height: 5rem;
+    border: var(--border);
+    border-radius: 50%;
+    background-color: var(--black);
+    color:#fff;
+    margin: .5rem;
+}
+
+.footer .share a:hover{
+    background-color:var(--main-color);
+}
+
+.footer .links{
+    padding:2rem;
+}
+
+.footer .links a{
+    font-size: 2.5rem;
+    color:#fff;
+    margin: 1rem;
+    border: var(--border);
+    padding: 1rem;
+}
+
+.footer .links a:hover{
+    background-color: var(--main-color);
+}
+
+.footer .credit{
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bolder;
+    margin: 1rem;
+}
+
+.footer .credit span{
+    color:#d3ad7f;
 }
 
 @media (max-width:768px){
